@@ -2,6 +2,8 @@ import websitelogo from '../icons/websitelogo.png';
 
 
 function Header() {
+    
+
     return(
         <div className="navbar bg-black">
             <img

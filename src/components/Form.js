@@ -5,6 +5,7 @@ function WebForm(){
 
     const [toSend, setToSend] = useState({
         phone: '',
+        email: '',
         age: '',
         place: '',
         issue: '',
@@ -21,7 +22,7 @@ function WebForm(){
             )
               .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
-                setToSend({ phone: '', age: '', place: '', issue: '',});
+                setToSend({ phone: '',email: '', age: '', place: '', issue: '',});
                 window.alert("We have received your information. Please sit back and wait comfortably as we will be in touch with you shortly.")
                 var frm = document.getElementsByName('form')[0];
                 frm.reset(); 
@@ -41,9 +42,9 @@ function WebForm(){
 
 
     return(
-        <div className="card shadow-xl p-8 bg-[#f0b43c]">
+        <div className="card shadow-xl p-2 bg-[#f0b43c]">
            
-  <form className="bg-white shadow-md rounded p-10" onSubmit={ onSubmit } name="form">
+  <form className="bg-white shadow-md rounded p-5" onSubmit={ onSubmit } name="form">
   <h2 className="mb-6 text-xl font-bold text-center">Drop in your issues and we will contact you!</h2>
     <div className="mb-5">
       <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -53,16 +54,23 @@ function WebForm(){
       
     </div>
     <div className="mb-5">
+      <label className="block text-gray-700 text-sm font-bold mb-2">
+        Email
+      </label>
+      <input required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" type="email" placeholder="Email" onChange={handleChange}></input>
+      
+    </div>
+    <div className="mb-5">
       <label className="block text-gray-700 text-sm font-bold mb-2" >
         Age
       </label>
-      <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="age" type="number" placeholder="Age" onChange={handleChange}></input>
+      <input required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="age" type="number" placeholder="Age" onChange={handleChange}></input>
     </div>
     <div className="mb-5">
       <label className="block text-gray-700 text-sm font-bold mb-2" >
         Place
       </label>
-      <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="place" type="text" placeholder="Place" onChange={handleChange}></input>
+      <input required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="place" type="text" placeholder="Place" onChange={handleChange}></input>
     </div>
     <div className="mb-6">
       <label className="block text-gray-700 text-sm font-bold mb-2" >
